@@ -1,0 +1,20 @@
+// src/components/layout/Layout.jsx
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Banner from './Banner';
+
+const Layout = ({ children }) => {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <Banner  autoScroll/>
+      <main className="flex-1 container mx-auto p-4">
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Layout;
