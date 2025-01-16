@@ -1,22 +1,52 @@
 // src/pages/Shops.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/layout/Layout';
-import { Star } from 'lucide-react';
+import ShopFilter from '../components/shops/ShopFilter';
 
 const Shops = () => {
-  // Sample data - replace with actual API call
-  const shops = [
-    { id: 1, name: "Shop Name", rating: 4.8, totalRatings: 1234, image: "/api/placeholder/200/200" },
-    { id: 2, name: "Shop Name", rating: 4.6, totalRatings: 1259, image: "/api/placeholder/200/200" },
-    // Add more shops...
+  const [filteredCategories, setFilteredCategories] = useState([]);
+
+  const allShops = [
+    { id: 1, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
+    { id: 2, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
+    { id: 3, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
+    { id: 4, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
+    { id: 5, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },
+    { id: 1, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
+    { id: 2, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
+    { id: 3, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
+    { id: 4, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
+    { id: 5, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },
+    { id: 1, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
+    { id: 2, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
+    { id: 3, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
+    { id: 4, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
+    { id: 5, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },
+    { id: 1, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
+    { id: 2, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
+    { id: 3, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
+    { id: 4, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
+    { id: 5, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },
   ];
+
+  const filteredShops = filteredCategories.length
+    ? allShops.filter((shop) =>
+        filteredCategories.some(
+          (category) =>
+            shop.category === category || shop.location === category
+        )
+      )
+    : allShops;
 
   return (
     <Layout>
       <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-8">All Shops</h1>
+        <div className="flex justify-end mb-6">
+          <ShopFilter onFilterChange={setFilteredCategories} />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {shops.map((shop) => (
+          {filteredShops.map((shop) => (
             <div key={shop.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
                 src={shop.image}
@@ -25,11 +55,8 @@ const Shops = () => {
               />
               <div className="p-4">
                 <h2 className="text-xl font-semibold">{shop.name}</h2>
-                <div className="flex items-center gap-2 mt-2">
-                  <Star className="fill-yellow-400 text-yellow-400" size={16} />
-                  <span className="font-medium">{shop.rating}</span>
-                  <span className="text-gray-500">({shop.totalRatings} ratings)</span>
-                </div>
+                <p className="text-gray-500 mt-1">{shop.category}</p>
+                <p className="text-gray-500">{shop.location}</p>
               </div>
             </div>
           ))}

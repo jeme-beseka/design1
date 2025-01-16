@@ -1,15 +1,32 @@
-// src/components/layout/Header.jsx
 import React from 'react';
-import { Search, Home, Settings, User } from 'lucide-react';
+import { Search, Home, Settings, User, ShoppingBag, ArrowLeft } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../common/SearchBar';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   return (
     <header className="bg-white shadow-md p-4">
       <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
+        {/* Back Button */}
+        <button 
+          onClick={handleBackClick}
+          className="p-2 hover:bg-gray-100 rounded-full mr-2"
+          aria-label="Go back"
+        >
+          <ArrowLeft size={24} />
+        </button>
+
+        {/* Logo with Link */}
         <div className="flex items-center">
-          <img src="/api/placeholder/40/40" alt="Logo" className="h-10" />
+          <Link to="/" aria-label="Go to homepage">
+            <img src="/api/placeholder/40/40" alt="Logo" className="h-10" />
+          </Link>
         </div>
 
         {/* Search Bar */}
@@ -17,15 +34,34 @@ const Header = () => {
 
         {/* Navigation Icons */}
         <div className="flex items-center space-x-6">
-          <button className="p-2 hover:bg-gray-100 rounded-full">
+          <Link 
+            to="/" 
+            className="p-2 hover:bg-gray-100 rounded-full"
+            aria-label="Home"
+          >
             <Home size={24} />
-          </button>
-          <button className="p-2 hover:bg-gray-100 rounded-full">
+          </Link>
+          <Link 
+            to="/Shops" 
+            className="p-2 hover:bg-gray-100 rounded-full"
+            aria-label="Shop"
+          >
+            <ShoppingBag size={24} />
+          </Link>
+          <Link 
+            to="/settings" 
+            className="p-2 hover:bg-gray-100 rounded-full"
+            aria-label="Settings"
+          >
             <Settings size={24} />
-          </button>
-          <button className="p-2 hover:bg-gray-100 rounded-full">
+          </Link>
+          <Link 
+            to="/profile" 
+            className="p-2 hover:bg-gray-100 rounded-full"
+            aria-label="Profile"
+          >
             <User size={24} />
-          </button>
+          </Link>
         </div>
       </div>
     </header>
