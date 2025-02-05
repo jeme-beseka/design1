@@ -1,57 +1,47 @@
-// src/components/shops/ShopFilter.jsx
 import React, { useState } from 'react';
 import { Filter } from 'lucide-react';
 
-const ShopFilter = ({ onFilterChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+const ShopFilter = ({ onFilterChange, tags }) => {
+  const [filters, setFilters] = useState({
+    category: [],
+    sortBy: '',
+    order: 'asc',
+    price: '',
+    inStock: false,
+    popularity: '',
+  });
 
-  const categories = [
-    "Location",
-    "Electronics",
-    "Beauty",
-    "Fashion",
-    "Home & Living",
-    "Books",
-  ];
-
-  const handleCategoryChange = (category) => {
-    const updatedCategories = selectedCategories.includes(category)
-      ? selectedCategories.filter((c) => c !== category)
-      : [...selectedCategories, category];
-
-    setSelectedCategories(updatedCategories);
-    onFilterChange(updatedCategories);
+  const handleFilterChange = (e) => {
+    const { name, value, checked } = e.target;
+    if (name === 'category') {
+      const newCategories = checked
+        ? [...filters.category, value]
+        : filters.category.filter((category) => category !== value);
+      setFilters({ ...filters, category: newCategories });
+    } else {
+      setFilters({ ...filters, [name]: value });
+    }
+    onFilterChange(filters);
   };
 
   return (
-    <div className="relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:bg-gray-50"
-      >
-        <Filter size={20} />
-        <span>Filter Shops</span>
-      </button>
-
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg p-4 z-10">
-          <h3 className="font-semibold mb-3">Categories</h3>
-          <div className="space-y-2">
-            {categories.map((category) => (
-              <label key={category} className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(category)}
-                  onChange={() => handleCategoryChange(category)}
-                  className="rounded"
-                />
-                <span>{category}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-      )}
+    <div className="flex flex-col">
+      <h2 className="text-lg font-semibold mb-2">Filter Products</h2>
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <label key={tag} className="flex items-center">
+            <input
+              type="checkbox"
+              name="category"
+              value={tag}
+              onChange={handleFilterChange}
+              className="mr-2"
+            />
+            {tag}
+          </label>
+        ))}
+      </div>
+      {/* Additional filter options can be added here */}
     </div>
   );
 };
