@@ -1,0 +1,96 @@
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1b100d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  /*Sliding text animation*/
+  .app-name-slide{
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .name-part {
+    font-size: 30px;
+    font-style: italic;
+    color: #2d3436;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 0.8s forwards;
+  }
+  
+  .name-part.left {
+    animation-delay: 0.2s;
+  }
+  
+  .name-part.right {
+    animation-delay: 0.4s;
+  }
+  /* Shopping Bag Animation */
+.shopping-bag-animation {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .shopping-bag {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #404353;
+    border-radius: 15px;
+    animation: bagBounce 1s infinite;
+  }
+
+  .item {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #0984e3;
+    border-radius: 4px;
+    opacity: 0;
+  }
+  
+  .item1 {
+    animation: flyIn 1s 0.5s infinite;
+  }
+  .item2 {
+    animation: flyIn 1s 0.7s infinite;
+  }
+  .item3 {
+    animation: flyIn 1s 0.9s infinite;
+  }
+  
+  /* Keyframes */
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes bagBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  @keyframes flyIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50px, -50px);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(50px, 50px);
+    }
+  }

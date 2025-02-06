@@ -5,6 +5,7 @@ import TrendingProductsCarousel from '../components/products/TrendingProductsCar
 import TopShopCarousel from '../components/shops/TopShopCarousel';
 import ProductGrid from '../components/products/ProductGrid';
 
+
 const Home = () => {
   const [productData, setProductData] = useState([]);
 
