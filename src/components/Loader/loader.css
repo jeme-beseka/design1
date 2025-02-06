@@ -21,6 +21,8 @@
 
   .name-part {
     font-size: 30px;
+    font-weight: bold;
+    text-align: center;
     font-style: italic;
     color: #2d3436;
     opacity: 0;
@@ -43,7 +45,7 @@
   }
   
   .shopping-bag {
-    position: absolute;
+    position: relative;
     width: 80px;
     height: 80px;
     background: #404353;
