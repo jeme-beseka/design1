@@ -16,17 +16,18 @@ const App = () => {
         {isLoading && (
           <Loader onLoadingComplete={() => setIsLoading(false)} />
         )}
-
+ 
         {/*Main Content after loading */}
-        {/* 
-      <Routes>
+        
+    <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/shops" element={<Shops />} />
         <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-      </Routes>*/}
+      </Routes>
+      
     </Router>
   );
 };

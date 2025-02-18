@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
+import ShoppingBag from '../../assets/Shopping Bag.svg.png';
 import './loader.css';
 
 const Loader = ({ onLoadingComplete }) => {
- // useEffect(() => {
-    //const timer = setTimeout(() => {
-      //onLoadingComplete();
-   // }, 6000); 
+  useEffect(() => {
+   const timer = setTimeout(() => {
+     onLoadingComplete();
+   }, 4000); 
     // Matching this with animation duration
 
-   // return () => clearTimeout(timer);
-  //}, [onLoadingComplete]);
+   return () => clearTimeout(timer);
+ }, [onLoadingComplete]);
 
  /*Main app component */
   return (
@@ -17,10 +18,11 @@ const Loader = ({ onLoadingComplete }) => {
       {/* Shopping Bag Animation */}
       <div className="shopping-bag-animation">
         <div className="shopping-bag">
-          <div className="item item1"></div>
-          <div className="item item2"></div>
-          <div className="item item3"></div>
+        <img src={ShoppingBag} alt="Shopping Bag" />
         </div>
+        <div className="item item1"></div>
+          <div className="item item2"></div>
+          <div className="item item3"></div>    
       </div>
       
     {/* Sliding Application Name */}
