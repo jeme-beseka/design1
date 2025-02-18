@@ -1,4 +1,3 @@
-// src/components/products/ProductCard.jsx
 import React, { useState } from 'react';
 import { ShoppingCart, Heart, Link as LinkIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -59,7 +58,10 @@ const ProductCard = ({ product }) => {
 
         {/* Product Information */}
         <div className="p-4">
-          <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+          <h3 
+            className="font-semibold text-lg mb-2 line-clamp-2 cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          >
             {product.name}
           </h3>
           
@@ -70,7 +72,7 @@ const ProductCard = ({ product }) => {
           </div>
 
           <Link 
-            to={`/shop/${product.shopId}`}
+            to={`/shop-view/:shopId${product.shopId}`}
             className="text-sm text-gray-600 hover:text-blue-500 flex items-center gap-1"
           >
             <LinkIcon size={14} />
