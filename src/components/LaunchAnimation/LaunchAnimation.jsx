@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import deliveryGuyImage from './delivery agent.jpg.png';
+import shoppingBagImage from './Shopping Bag.svg.png'
 import './LaunchAnimation.css'; // Add your CSS for the animation
 
 const LaunchAnimation = ({ onAnimationComplete }) => {
@@ -18,24 +18,20 @@ const LaunchAnimation = ({ onAnimationComplete }) => {
 
   return (
     <div className="launch-container">
-      {/* Shopping Bag Animation */}
+      {/* Shopping Bag with Animated Items */}
       <div className="shopping-bag-animation">
-        <div className="shopping-bag">
-          <img src="/path-to-shopping-bag.png" alt="Shopping Bag" />
-        </div>
+        <img src={shoppingBagImage} alt="shopping bag" className="bag-image" />
         <div className="item item1"></div>
         <div className="item item2"></div>
         <div className="item item3"></div>
       </div>
 
-      {/* Delivery Guy Animation */}
-      <div className="delivery-guy-animation">
-        <img src={deliveryGuyImage} alt="Delivery Guy" />
-      </div>
-
+     
       {/* App Name Animation */}
       <div className="app-name-animation">
-        <div className="name-part">Shopera</div>
+        {['S', 'H', 'O', 'P', 'E', 'R', 'A'].map((letter, index) => (
+          <span key={index} className="letter">{letter}</span>
+        ))}
       </div>
     </div>
   );
