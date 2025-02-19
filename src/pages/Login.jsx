@@ -71,9 +71,9 @@ const LoginPage = () => {
           
           <p className="text-gray-400">
             Don't have an account? 
-            <a href="/signup" className="text-blue-500 hover:text-blue-400 transition-colors duration-200"> 
+            <Link to="/signup" className="text-blue-500 hover:text-blue-400 transition-colors duration-200"> 
             Sign Up
-            </a>
+            </Link>
           </p>
         </div>
      </form>  
