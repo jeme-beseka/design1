@@ -20,40 +20,39 @@ const ProductCard = ({ product }) => {
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <div className="relative">
-          {/* Action Buttons */}
-          <div className="absolute top-2 left-2 right-2 flex justify-between z-10">
-            <button
-              onClick={handleAddToCart}
-              className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors duration-200"
-            >
-              <ShoppingCart size={18} />
-            </button>
-            
-            <button
-              onClick={handleWishlist}
-              className={`p-2 rounded-full transition-colors duration-200 ${
-                isWishlisted 
-                  ? 'bg-red-500 text-white' 
-                  : 'bg-white text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <Heart size={18} fill={isWishlisted ? 'white' : 'none'} />
-            </button>
-          </div>
+      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 relative">
+        {/* Product Image */}
+        <div onClick={() => setIsModalOpen(true)} className="cursor-pointer relative">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-64 object-cover"
+          />
+          {product.discounted && (
+            <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+              {product.discount}
+            </span>
+          )}
+        </div>
 
-          {/* Product Image */}
-          <div 
-            onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer"
+        {/* Action Buttons */}
+        <div className="flex justify-between p-2">
+          <button
+            onClick={handleAddToCart}
+            className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors duration-200"
           >
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-64 object-cover"
-            />
-          </div>
+            <ShoppingCart size={18} />
+          </button>
+          <button
+            onClick={handleWishlist}
+            className={`p-2 rounded-full transition-colors duration-200 ${
+              isWishlisted 
+                ? 'bg-red-500 text-white' 
+                : 'bg-white text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            <Heart size={18} fill={isWishlisted ? 'white' : 'none'} />
+          </button>
         </div>
 
         {/* Product Information */}
@@ -64,20 +63,14 @@ const ProductCard = ({ product }) => {
           >
             {product.name}
           </h3>
-          
           <div className="flex items-center justify-between mb-2">
-            <span className="text-lg font-bold text-blue-600">
-              ${product.price.toFixed(2)}
+            {product.discounted && (
+              <span className="text-gray-400 line-through">${product.originalPrice?.toFixed(2) || 'N/A'}</span>
+            )}
+            <span className={`text-lg font-bold ${product.discounted ? 'text-red-500' : 'text-blue-600'}`}>
+              ${product.discounted ? product.discountPrice?.toFixed(2) : product.price?.toFixed(2) || 'N/A'}
             </span>
           </div>
-
-          <Link 
-            to={`/shop-view/:shopId${product.shopId}`}
-            className="text-sm text-gray-600 hover:text-blue-500 flex items-center gap-1"
-          >
-            <LinkIcon size={14} />
-            {product.shopName}
-          </Link>
         </div>
       </div>
 

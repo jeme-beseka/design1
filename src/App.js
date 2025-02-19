@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
+
 import LaunchAnimation from './components/LaunchAnimation/LaunchAnimation'; // Import Launch Animation
 import  NavigationLoader from './components/Loader/NavigationLoader';
 // Lazy-loaded components
@@ -15,6 +16,7 @@ const CartPage = lazy(() => import('./pages/CartPage.jsx'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage.jsx'));
 const ShopView = lazy(() => import('./components/shops/ShopView.jsx'));
 const ShopProfile = lazy(() => import('./components/shops/ShopProfile.jsx'));
+
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true);
