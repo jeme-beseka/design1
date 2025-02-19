@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Fashion Outlet",
+    "category": "Fashion",
+    "location": "Presbyterian Church",
+    "description": "Latest trends in fashion and accessories.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 2,
+    "name": "Denim World",
+    "category": "Fashion",
+    "location": "Santa Babara",
+    "description": "Quality denim apparel and accessories.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 3,
+    "name": "Sports Gear",
+    "category": "Sports",
+    "location": "Bokwango",
+    "description": "Gear up for your favorite sports and outdoor activities.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 4,
+    "name": "Accessories Plus",
+    "category": "Accessories",
+    "location": "Santa Babara",
+    "description": "Complete your look with our stylish accessories.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 5,
+    "name": "Tech Haven",
+    "category": "Electronics",
+    "location": "Biaka Junction",
+    "description": "Your one-stop shop for all tech gadgets.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 6,
+    "name": "Sunny Shades",
+    "category": "Accessories",
+    "location": "Not specified",
+    "description": "Stylish sunglasses offering UV protection and a modern look.",
+    "image": "https://example.com/sunglasses.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Book Haven",
+    "category": "Books",
+    "location": "Not specified",
+    "description": "A haven for book lovers with a wide selection of genres.",
+    "image": "https://via.placeholder.com/200?text=Book+Haven"
+  },
+  {
+    "id": 8,
+    "name": "Toy Kingdom",
+    "category": "Toys",
+    "location": "Not specified",
+    "description": "A kingdom of toys for children of all ages.",
+    "image": "https://via.placeholder.com/200?text=Toy+Kingdom"
+  },
+  {
+    "id": 9,
+    "name": "Home Essentials",
+    "category": "Home",
+    "location": "Not specified",
+    "description": "Essential products for your home.",
+    "image": "https://via.placeholder.com/200?text=Home+Essentials"
+  },
+  {
+    "id": 10,
+    "name": "Outdoor Gear",
+    "category": "Outdoors",
+    "location": "Not specified",
+    "description": "Quality gear for all your outdoor adventures.",
+    "image": "https://via.placeholder.com/200?text=Outdoor+Gear"
+  },
+  {
+    "id": 12,
+    "name": "Beauty Boutique",
+    "category": "Beauty",
+    "location": "Not specified",
+    "description": "Beauty products and cosmetics for all.",
+    "image": "https://via.placeholder.com/200?text=Beauty+Boutique"
+  },
+  {
+    "id": 13,
+    "name": "Gourmet Foods",
+    "category": "Food",
+    "location": "Not specified",
+    "description": "Organic and gourmet food products for health enthusiasts.",
+    "image": "https://via.placeholder.com/200?text=Gourmet+Foods"
+  },
+  {
+    "id": 14,
+    "name": "Fitness Hub",
+    "category": "Fitness",
+    "location": "Not specified",
+    "description": "Your go-to shop for fitness equipment and accessories.",
+    "image": "https://via.placeholder.com/200?text=Fitness+Hub"
+  },
+  {
+    "id": 15,
+    "name": "Garden Center",
+    "category": "Gardening",
+    "location": "Not specified",
+    "description": "Everything for your gardening needs.",
+    "image": "https://via.placeholder.com/200?text=Garden+Center"
+  },
+  {
+    "id": 16,
+    "name": "Office Depot",
+    "category": "Office Supplies",
+    "location": "Not specified",
+    "description": "Everything you need for your office supplies.",
+    "image": "https://via.placeholder.com/200?text=Office+Depot"
+  },
+  {
+    "id": 17,
+    "name": "Gadget World",
+    "category": "Electronics",
+    "location": "Not specified",
+    "description": "Latest gadgets and tech accessories.",
+    "image": "https://via.placeholder.com/200?text=Gadget+World"
+  },
+  {
+    "id": 19,
+    "name": "Music World",
+    "category": "Music",
+    "location": "Not specified",
+    "description": "Instruments and accessories for music lovers.",
+    "image": "https://via.placeholder.com/200?text=Music+World"
+  },
+  {
+    "id": 20,
+    "name": "Auto Parts",
+    "category": "Automotive",
+    "location": "Not specified",
+    "description": "Quality auto parts and accessories.",
+    "image": "https://via.placeholder.com/200?text=Auto+Parts"
+  },
+  {
+    "id": 21,
+    "name": "Family Essentials",
+    "category": "Family",
+    "location": "Not specified",
+    "description": "Products for the whole family.",
+    "image": "https://via.placeholder.com/200?text=Family+Essentials"
+  },
+  {
+    "id": 22,
+    "name": "Gaming Store",
+    "category": "Gaming",
+    "location": "Not specified",
+    "description": "The ultimate destination for gamers.",
+    "image": "https://via.placeholder.com/200?text=Gaming+Store"
+  }
+]

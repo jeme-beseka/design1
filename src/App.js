@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
 import ShopView from './components/shops/ShopView';
 import ShopProfile from './components/shops/ShopProfile';
+import ProductDetailModal from './components/products/ProductDetailModal';
 
 const App = () => {
   return (

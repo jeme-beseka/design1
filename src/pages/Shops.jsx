@@ -1,35 +1,12 @@
-// src/pages/Shops.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import ShopFilter from '../components/shops/ShopFilter';
+import { allShops } from '../data/shopData';
 
 const Shops = () => {
   const navigate = useNavigate();
   const [filteredCategories, setFilteredCategories] = useState([]);
-
-  const allShops = [
-    { id: 1, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
-    { id: 2, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
-    { id: 3, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
-    { id: 4, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
-    { id: 5, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },
-    { id: 6, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
-    { id: 7, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
-    { id: 8, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
-    { id: 9, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
-    { id: 10, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },    
-    { id: 11, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
-    { id: 12, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
-    { id: 13, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
-    { id: 14, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
-    { id: 15, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },
-    { id: 16, name: "Shop 1", category: "Electronics", location: "New York", image: "https://via.placeholder.com/200" },
-    { id: 21, name: "Shop 2", category: "Beauty", location: "Los Angeles", image: "https://via.placeholder.com/200" },
-    { id: 31, name: "Shop 3", category: "Fashion", location: "Chicago", image: "https://via.placeholder.com/200" },
-    { id: 41, name: "Shop 4", category: "Home & Living", location: "Houston", image: "https://via.placeholder.com/200" },
-    { id: 51, name: "Shop 5", category: "Books", location: "Miami", image: "https://via.placeholder.com/200" },    
-  ];
 
   const filteredShops = filteredCategories.length
     ? allShops.filter((shop) =>
