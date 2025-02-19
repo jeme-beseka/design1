@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout/Layout';
-// import DiscountedProductsCarousel from '../components/products/DiscountedProductsCarousel';
-// import TrendingProductsCarousel from '../components/products/TrendingProductsCarousel';
-// import TopShopCarousel from '../components/shops/TopShopCarousel';
 import ProductGrid from '../components/products/ProductGrid';
 
 const Home = () => {
@@ -25,71 +22,9 @@ const Home = () => {
 
   return (
     <Layout>
-      {/* Discounted Products Carousel
-      {/* <DiscountedProductsCarousel autoScroll /> */}
-
-      {/* Product Grid with Dummy Data: First Section */}
-      {/* <div className="my-8">
-        <ProductGrid products={productData.slice(0, 8)} />
-      </div> */}
-
-      {/* Trending Products Carousel */}
-      {/* <TrendingProductsCarousel autoScroll /> */}
-
-      {/* Product Grid with Dummy Data: Second Section */}
-      {/* <div className="my-8">
-        <ProductGrid products={productData.slice(8, 16)} />
-      </div> */}
-
-      {/* Top Shops Carousel
-      <TopShopCarousel autoScroll /> */}
-
-      {/* Product Grid with Dummy Data: Remaining Products */}
-      {/* <div className="my-8">
-        <ProductGrid products={productData.slice(16)} />
-      </div> */}
       <ProductGrid />
     </Layout>
   );
 };
 
 export default Home;
-// // src/pages/Home.jsx
-// import React, { useEffect, useRef} from 'react';
-// import Layout from '../components/layout/Layout';
-// import DiscountedProductsCarousel from '../components/products/DiscountedProductsCarousel';
-// import TrendingProductsCarousel from '../components/products/TrendingProductsCarousel';
-// import TopShopCarousel from '../components/shops/TopShopCarousel';
-// import ProductGrid from '../components/products/ProductGrid';
-
-// const Home = () => {
-//   return (
-//     <Layout>
-//       {/* Discounted Products Carousel */}
-//       <DiscountedProductsCarousel autoScroll />
-
-//       {/* Product Grid: First Section */}
-//       <div className="my-8">
-//         <ProductGrid section="first" />
-//       </div>
-
-//       {/* Trending Products Carousel */}
-//       <TrendingProductsCarousel autoScroll />
-
-//       {/* Product Grid: Second Section */}
-//       <div className="my-8">
-//         <ProductGrid section="second" />
-//       </div>
-
-//       {/* Top Shops Carousel */}
-//       <TopShopCarousel autoScroll/>
-
-//       {/* Product Grid: Remaining Products */}
-//       <div className="my-8">
-//         <ProductGrid section="remaining" />
-//       </div>
-//     </Layout>
-//   );
-// };
-
-// export default Home;

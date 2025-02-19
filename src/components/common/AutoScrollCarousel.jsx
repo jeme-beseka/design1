@@ -1,22 +1,31 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import './autoscroll.css';
 
 const AutoScrollCarousel = ({ 
   items, 
   renderItem, 
   title, 
-  autoScrollInterval = 5000,
+  autoScrollInterval = 2000,
   className = "" 
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef(null);
+  const totalItems = items.length;
 
   const scroll = (direction) => {
     if (containerRef.current) {
       const container = containerRef.current;
       const scrollAmount = direction === 'left' ? -container.offsetWidth : container.offsetWidth;
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      
+      // Update current index for infinite scrolling
+      if (direction === 'right') {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
+      } else {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + totalItems) % totalItems);
+      }
     }
   };
 
@@ -48,9 +57,10 @@ const AutoScrollCarousel = ({
       <div className="relative">
         <div
           ref={containerRef}
-          className="flex overflow-x-auto hide-scrollbar gap-4 px-6 scroll-smooth"
+          className="flex overflow-x-hidden hide-scrollbar gap-4 px-6 scroll-smooth"
         >
-          {items.map((item, index) => (
+          {/* Duplicate items for infinite scrolling effect */}
+          {[...items, ...items].map((item, index) => (
             <div key={item.id} className="flex-none">
               {renderItem(item, index)}
             </div>
