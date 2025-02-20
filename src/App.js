@@ -4,7 +4,7 @@ import './App.css';
 
 
 import LaunchAnimation from './components/LaunchAnimation/LaunchAnimation'; // Import Launch Animation
-//import  NavigationLoader from './components/Loader/NavigationLoader';
+import  NavigationLoader from './components/Loader/NavigationLoader';
 // Lazy-loaded components
 const LoginPage = lazy(() => import('./pages/Login.jsx'));
 const SignupPage = lazy(() => import('./pages/Signup.jsx'));
