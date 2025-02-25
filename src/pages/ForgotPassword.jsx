@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; // Changed from <a> to <Link>
+import axios from 'axios';
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
@@ -9,20 +10,27 @@ const ForgotPasswordPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setError('');
+
+     // Basic validation
+     if (!email) {
+      setError('Please enter your email.');
+      return;
+    }
+
     try {
       // Add your actual password reset API call here
-      console.log('Password reset requested for:', email);
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setSuccess(true);
-      setError('');
-      setTimeout(() => navigate('/login'), 2000);
+      const response = await axios.post('https://your-backend-api.com/forgot-password', { email });
+      if (response.data.success) {
+        setSuccess(true);
+        setTimeout(() => navigate('/login'), 2000); // Redirect to login after 2 seconds
+      } else {
+        setError(response.data.message || 'Failed to send reset link.');
+      }
     } catch (err) {
-      setError('Failed to send reset link. Please try again.');
+      setError('An error occurred. Please try again.');
     }
+      console.log('Password reset requested for:', email);
   };
 
   return (
