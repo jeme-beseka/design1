@@ -9,24 +9,28 @@ import ProfilePage from './pages/ProfilePage';
 import ShopView from './components/shops/ShopView';
 import ShopProfile from './components/shops/ShopProfile';
 import ProductDetailModal from './components/products/ProductDetailModal';
+import { ProductModalProvider } from './components/context/ProductModalContext';
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shops" element={<Shops />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/shop-view/:shopId" element={<ShopView />} />
-        <Route path="/shop-profile/:shopId" element={<ShopProfile />} />
-      </Routes>
+      <ProductModalProvider>
+        <div className="app-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shops" element={<Shops />} />
+            <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/shop-view/:shopId" element={<ShopView />} />
+            <Route path="/shop-profile/:shopId" element={<ShopProfile />} />
+          </Routes>
+          {/* Global modal that will appear when a product is selected */}
+          <ProductDetailModal />
+        </div>
+      </ProductModalProvider>
     </Router>
   );
 };
 
 export default App;
-
-// 
-
