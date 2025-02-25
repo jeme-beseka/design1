@@ -9,6 +9,8 @@ import  NavigationLoader from './components/Loader/NavigationLoader';
 const LoginPage = lazy(() => import('./pages/Login.jsx'));
 const SignupPage = lazy(() => import('./pages/Signup.jsx'));
 const ForgotPasswordPage = lazy(() => import('./pages/ForgotPassword.jsx'));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPassword.jsx'));
+
 const Home = lazy(() => import('./pages/Home.jsx'));
 
 const Shops = lazy(() => import('./pages/Shops.jsx'));
@@ -42,6 +44,7 @@ const App = () => {
          <Route path="/login" element={<LoginPage />} /> 
         <Route path="/signup" element={<SignupPage />} />  
         <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
+        <Route path="/reset-password" element={<ResetPasswordPage />} /> 
 
         <Route path="/home" element={<Home />} />
         <Route path="/shops" element={<Shops />} />
