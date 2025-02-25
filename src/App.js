@@ -1,27 +1,59 @@
-import React from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import Shops from './pages/Shops';
-import ProductPage from './pages/ProductPage';
-import CartPage from './pages/CartPage';
-import ProfilePage from './pages/ProfilePage';
-import ShopView from './components/shops/ShopView';
-import ShopProfile from './components/shops/ShopProfile';
-import ProductDetailModal from './components/products/ProductDetailModal';
+
+
+import LaunchAnimation from './components/LaunchAnimation/LaunchAnimation'; // Import Launch Animation
+import  NavigationLoader from './components/Loader/NavigationLoader';
+// Lazy-loaded components
+const LoginPage = lazy(() => import('./pages/Login.jsx'));
+const SignupPage = lazy(() => import('./pages/Signup.jsx'));
+const ForgotPasswordPage = lazy(() => import('./pages/ForgotPassword.jsx'));
+const Home = lazy(() => import('./pages/Home.jsx'));
+
+const Shops = lazy(() => import('./pages/Shops.jsx'));
+const ProductPage = lazy(() => import('./pages/ProductPage.jsx'));
+const CartPage = lazy(() => import('./pages/CartPage.jsx'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage.jsx'));
+const ShopView = lazy(() => import('./components/shops/ShopView.jsx'));
+const ShopProfile = lazy(() => import('./components/shops/ShopProfile.jsx'));
+
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Function to handle animation completion
+  const handleAnimationComplete = () => {
+    setIsLoading(false);
+  };
+
+
+    return (
+      <Router>
+        {isLoading && (
+          <LaunchAnimation onAnimationComplete={handleAnimationComplete} />
+        )}
+ 
+        {/*Main Content after launch Animation */}
+        
+   <Suspense fallback={<NavigationLoader />}>
+    <Routes>
+
+         <Route path="/login" element={<LoginPage />} /> 
+        <Route path="/signup" element={<SignupPage />} />  
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
+
+        <Route path="/home" element={<Home />} />
         <Route path="/shops" element={<Shops />} />
         <Route path="/product/:productId" element={<ProductPage />} />
+         
         <Route path="/cart" element={<CartPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/shop-view/:shopId" element={<ShopView />} />
         <Route path="/shop-profile/:shopId" element={<ShopProfile />} />
       </Routes>
+
+      </Suspense>
     </Router>
   );
 };

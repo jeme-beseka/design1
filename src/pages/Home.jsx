@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout/Layout';
 import ProductGrid from '../components/products/ProductGrid';
 
+
 const Home = () => {
   const [productData, setProductData] = useState([]);
 
