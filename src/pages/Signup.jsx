@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -8,16 +9,36 @@ const SignupPage = () => {
     password: '',
     confirmPassword: ''
   });
-
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your signup logic here
+    setError('');
     console.log('Signup form submitted:', formData);
 
-    // Example: Redirect to login page after signup
-    navigate('/login');
+    // Basic validation
+    if (!formData.username || !formData.email || !formData.password || !formData.confirmPassword) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+    try {
+      // API call to signup
+      const response = await axios.post('https://your-backend-api.com/signup', formData);
+      if (response.data.success) {
+        // Redirect to login page
+        navigate('/login');
+      } else {
+        setError(response.data.message || 'Signup failed. Please try again.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
   };
 
   const handleChange = (e) => {
@@ -32,6 +53,12 @@ const SignupPage = () => {
       <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-xl">
       <h2 className="text-3xl font-bold text-center text-white">Create Your Account</h2>
       
+      {error && (
+          <div className="p-3 text-red-500 bg-red-900 rounded-md">
+            {error}
+          </div>
+        )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-300">Username</label>
