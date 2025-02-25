@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // For navigate
+import axios from 'axios'; //importing axios API calls
 
 
 const LoginPage = () => {
@@ -7,16 +8,36 @@ const LoginPage = () => {
     username: '',
     password: ''
   });
-
+  const [error, setError] = useState('');
   const navigate = useNavigate(); // Hook for navigation
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your login logic here
-    console.log('Form submitted:', formData);
+    setError('');
 
-    // Example: Redirect to home page after login
+    //Basic validation
+    if (!formData.username || !formData.password){
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    try{
+      //API call to login
+      const response = await axios.post('https://your-backend-api.com/login', formData);
+      
+      if (response.data.success){
+        //saving token to localStorage
+        localStorage.setItem('token', response.data.token);
+
+      //Redirect to home page after login
     navigate('/home');
+      } else {
+        setError(response.data.message || 'Login failed. Please try again.');
+       }
+    }  catch (err){
+      setError('An error occured. Please try again');
+     }
+
   };
 
   const handleChange = (e) => {
@@ -25,11 +46,20 @@ const LoginPage = () => {
       [e.target.name]: e.target.value
     });
   };
+
+
   return (
  <div className="flex items-center justify-center min-h-screen bg-black">
    <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-xl">
       <h2 className="text-3xl font-bold text-center text-white">Welcome to Shopera</h2>
       
+      {error && (
+          <div className="p-3 text-red-500 bg-red-900 rounded-md">
+            {error}
+          </div>
+        )}
+
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-300">Username</label>
