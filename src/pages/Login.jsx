@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // For navigate
-import axios from 'axios'; //importing axios API calls
+//import axios from 'axios'; //importing axios API calls
 
 
 const LoginPage = () => {
@@ -21,10 +21,27 @@ const LoginPage = () => {
       return;
     }
 
+
+// Temporary mock login - remove when backend is ready
+await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+localStorage.setItem('token', 'mock-token-for-development');
+navigate('/home');
+
+
+
+
+
+
+
+
+
+
+
+    /*
     try{
       //API call to login
       //need to include my actual backend API url
-      const response = await axios.post('https://your-backend-api.com/login', formData);
+      ////const response = await axios.post('https://your-backend-api.com/login', formData);
       
       if (response.data.success){
         //saving token to localStorage
@@ -38,7 +55,7 @@ const LoginPage = () => {
     }  catch (err){
       setError('An error occured. Please try again');
      }
-
+    */
   };
 
   const handleChange = (e) => {
