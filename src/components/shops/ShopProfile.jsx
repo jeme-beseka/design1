@@ -1,5 +1,6 @@
 // src/pages/ShopProfile.jsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../../components/layout/Layout';
 
 const ShopProfile = () => {
@@ -94,6 +95,11 @@ const ShopProfile = () => {
           <p className="text-gray-600">Location: City, State</p>
           <p className="text-gray-600">Contact: +123 456 7890</p>
           <p className="text-gray-600 mt-4">Shop Description: This is an electronics shop specializing in gadgets and accessories.</p>
+          <div className="mt-4 flex justify-end">
+            <Link to="/vendor" className="bg-blue-500 text-white px-4 py-2 rounded">
+              Go to Vendor Dashboard
+            </Link>
+          </div>
         </div>
 
         {/* Shop Gallery */}

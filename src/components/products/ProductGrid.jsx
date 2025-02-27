@@ -27,7 +27,7 @@ const ProductGrid = () => {
     loadProducts();
   }, []);
 
-  const PRODUCTS_PER_SECTION = 12; // 3 rows of 4 products
+  const PRODUCTS_PER_SECTION = 15; // 3 rows of 5 products
 
   const loadMoreProducts = async () => {
     setLoading(true);
@@ -47,7 +47,7 @@ const ProductGrid = () => {
   const renderProductSection = (startIndex, endIndex) => {
     const shuffledProducts = shuffleArray(products);
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6">
         {shuffledProducts.slice(startIndex, endIndex).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
@@ -66,7 +66,7 @@ const ProductGrid = () => {
         <div className="text-center p-4">Loading products...</div>
       ) : (
         <div className="space-y-8">
-          <div className="flex justify-end mb-6">
+          <div className="flex justify-end mb-4 sm:mb-6">
             <ProductFilter onFilterChange={(categories) => {
               // Implement filter logic
             }} />
@@ -83,11 +83,11 @@ const ProductGrid = () => {
           {products.length > PRODUCTS_PER_SECTION * 3 && (
             renderProductSection(PRODUCTS_PER_SECTION * 3, products.length)
           )}
-          <div className="mt-8 text-center">
+          <div className="mt-6 sm:mt-8 text-center">
             <button
               onClick={loadMoreProducts}
               disabled={loading}
-              className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-400"
+              className="px-4 sm:px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-400 text-sm sm:text-base"
             >
               {loading ? 'Loading...' : 'Show More'}
             </button>

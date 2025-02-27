@@ -33,25 +33,26 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative h-[33.67 vh] bg-grey-100 shadow-lg rounded-lg overflow-hidden">
+    <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[33.67vh] bg-grey-100 shadow-lg rounded-lg overflow-hidden">
       <div 
         className="transition-transform duration-500 ease-in-out flex"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {bannerContent.map((content, index) => (
-          <div 
+            <div 
             key={index}
-            className="min-w-full p-6"
+            className="min-w-full p-4 sm:p-6"
           >
-            <h1 className="text-2xl font-bold mb-2">{content.title}</h1>
-            <h2 className="text-lg mb-2">{content.subtitle}</h2>
-            <p className="text-gray-600">{content.description}</p>
+            <h1 className="text-xl sm:text-2xl font-bold mb-2">{content.title}</h1>
+            <h2 className="text-base sm:text-lg mb-2">{content.subtitle}</h2>
+            <p className="text-sm sm:text-base text-gray-600">{content.description}</p>
           </div>
+
         ))}
       </div>
       
       {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2">
         {bannerContent.map((_, index) => (
           <button
             key={index}

@@ -44,20 +44,20 @@ const AutoScrollCarousel = ({
 
   return (
     <div 
-      className={`bg-white rounded-lg shadow-md py-6 ${className}`}
+      className={`bg-white rounded-lg shadow-md py-4 sm:py-6 ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {title && (
-        <div className="px-6 mb-4">
-          <h2 className="text-2xl font-bold">{title}</h2>
+        <div className="px-4 sm:px-6 mb-2 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold">{title}</h2>
         </div>
       )}
       
       <div className="relative">
         <div
           ref={containerRef}
-          className="flex overflow-x-hidden hide-scrollbar gap-4 px-6 scroll-smooth"
+          className="flex overflow-x-hidden hide-scrollbar gap-3 sm:gap-4 px-4 sm:px-6 scroll-smooth"
         >
           {/* Duplicate items for infinite scrolling effect */}
           {[...items, ...items].map((item, index) => (
@@ -69,15 +69,15 @@ const AutoScrollCarousel = ({
         
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md ml-2"
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 p-1 sm:p-2 rounded-full shadow-md ml-1 sm:ml-2"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md mr-2"
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 p-1 sm:p-2 rounded-full shadow-md mr-1 sm:mr-2"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
     </div>
