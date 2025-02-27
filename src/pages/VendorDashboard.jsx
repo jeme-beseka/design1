@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Sidebar from '../vendor/Sidebar';
-import Header from '../vendor/Header';
-import DashboardContent from '../vendor/DashboardContent';
-import InventoryContent from '../vendor/InventoryContent';
+import Sidebar from '../vendor/vCommon/Sidebar';
+import Header from '../vendor/vCommon/Header';
+import DashboardContent from '../vendor/vPages/DashboardContent';
+import InventoryContent from '../vendor/vPages/InventoryContent';
 
 const VendorDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
