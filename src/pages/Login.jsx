@@ -21,21 +21,10 @@ const LoginPage = () => {
       return;
     }
 
-
 // Temporary mock login - remove when backend is ready
 await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
 localStorage.setItem('token', 'mock-token-for-development');
 navigate('/home');
-
-
-
-
-
-
-
-
-
-
 
     /*
     try{
@@ -66,7 +55,7 @@ navigate('/home');
     // }  catch (err){
     //   setError('An error occured. Please try again');
     //  }
-
+*/
   };
 
   const handleChange = (e) => {

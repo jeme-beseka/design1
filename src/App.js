@@ -2,7 +2,6 @@ import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VendorDashboard from './pages/VendorDashboard'; // Import Vendor Dashboard
 import DashboardContent from './vendor/DashboardContent.jsx';
-import Dashboard from './vendor/Dashboard';
 import './App.css';
 
 
@@ -50,6 +49,7 @@ const App = () => {
                             <Route path="/login" element={<LoginPage />} /> 
                             <Route path="/signup" element={<SignupPage />} />  
                             <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
+                            <Route path="/reset-password" element={<ResetPasswordPage />} />
                             <Route path="/home" element={<Home />} />
                             <Route path="/shops" element={<Shops />} />
                             <Route path="/product/:productId" element={<ProductPage />} />
