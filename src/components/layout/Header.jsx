@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md p-4">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
         {/* Back Button */}
         <button 
           onClick={handleBackClick}
@@ -25,15 +25,17 @@ const Header = () => {
         {/* Logo with Link */}
         <div className="flex items-center">
           <Link to="/" aria-label="Go to homepage">
-            <img src="/api/placeholder/40/40" alt="Logo" className="h-10" />
+            <img src="/api/placeholder/40/40" alt="Logo" className="h-8 sm:h-10" />
           </Link>
         </div>
 
         {/* Search Bar */}
-        <SearchBar />
+        <div className="flex-1 mx-4 sm:mx-8">
+          <SearchBar />
+        </div>
 
         {/* Navigation Icons */}
-        <div className="flex items-center space-x-6">
+        <div className="hidden sm:flex items-center space-x-4 sm:space-x-6">
           <Link 
             to="/" 
             className="p-2 hover:bg-gray-100 rounded-full"
