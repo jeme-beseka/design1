@@ -21,22 +21,26 @@ const LoginPage = () => {
       return;
     }
 
-    try{
-      //API call to login
-      const response = await axios.post('https://your-backend-api.com/login', formData);
-      
-      if (response.data.success){
-        //saving token to localStorage
-        localStorage.setItem('token', response.data.token);
-
-      //Redirect to home page after login
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    localStorage.setItem('token', 'mock-token-for-development');
     navigate('/home');
-      } else {
-        setError(response.data.message || 'Login failed. Please try again.');
-       }
-    }  catch (err){
-      setError('An error occured. Please try again');
-     }
+
+    // try{
+    //   //API call to login
+    //   const response = await axios.post('https://your-backend-api.com/login', formData);
+      
+    //   if (response.data.success){
+    //     //saving token to localStorage
+    //     localStorage.setItem('token', response.data.token);
+
+    //   //Redirect to home page after login
+    // navigate('/home');
+    //   } else {
+    //     setError(response.data.message || 'Login failed. Please try again.');
+    //    }
+    // }  catch (err){
+    //   setError('An error occured. Please try again');
+    //  }
 
   };
 

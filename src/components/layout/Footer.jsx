@@ -6,14 +6,15 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-white shadow-md mt-auto">
-      <div className="container mx-auto py-4">
-        <div className="flex justify-around items-center">
+      <div className="container mx-auto py-3 sm:py-4">
+        <div className="flex justify-around items-center px-4 sm:px-8">
+
           <Link 
             to="/cart" 
             className="group relative p-2 hover:bg-gray-100 rounded-full"
           >
             <ShoppingCart size={24} />
-            <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Go to Cart
             </span>
           </Link>
