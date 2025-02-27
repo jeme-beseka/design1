@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.animate-modal-slide-in {
+    animation: modal-slide-in 0.1s ease-out forwards;
+  }
+  
+  @keyframes modal-slide-in {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .transition-opacity {
+    transition-property: opacity;
+  }
+  
+  .transition-transform {
+    transition-property: transform, opacity;
+  }
+  
+  .duration-50 {
+    transition-duration: 50ms;
+  }
+  
+  .translate-y-0 {
+    transform: translateY(0);
+  }
+  
+  .translate-y-4 {
+    transform: translateY(16px);
+  }
+  
+  .opacity-0 {
+    opacity: 0;
+  }
+  
+  .opacity-100 {
+    opacity: 1;
+  }
+  
+  .bg-opacity-0 {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5);
+  }  
