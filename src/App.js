@@ -5,9 +5,14 @@ import DashboardContent from './vendor/DashboardContent.jsx';
 import Dashboard from './vendor/Dashboard';
 import './App.css';
 
-import { ProductModalProvider } from './components/context/ProductModalContext'; 
+
+import { ProductModalProvider } from './components/context/ProductModalContext';  
 import LaunchAnimation from './components/LaunchAnimation/LaunchAnimation'; // Import Launch Animation
-import NavigationLoader from './components/Loader/NavigationLoader';
+import  NavigationLoader from './components/Loader/NavigationLoader';
+
+
+
+// Lazy loading routes
 
 const LoginPage = lazy(() => import('./pages/Login.jsx'));
 const SignupPage = lazy(() => import('./pages/Signup.jsx'));
@@ -20,6 +25,7 @@ const ProfilePage = lazy(() => import('./pages/ProfilePage.jsx'));
 const ShopView = lazy(() => import('./components/shops/ShopView.jsx'));
 const ShopProfile = lazy(() => import('./components/shops/ShopProfile.jsx'));
 const ProductDetailModal = lazy(() => import('./components/products/ProductDetailModal.jsx'));
+
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -61,3 +67,8 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
