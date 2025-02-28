@@ -3,7 +3,12 @@ import {
   Home, Package, ShoppingBag, TrendingUp, Users, Truck, Settings, X 
 } from 'lucide-react';
 
-const Sidebar = ({ activeTab, setActiveTab, isMobileMenuOpen, toggleMobileMenu }) => {
+const Sidebar = ({ 
+  onSwitchToBuyer, 
+  activeTab, 
+  setActiveTab, 
+  isMobileMenuOpen, 
+  toggleMobileMenu }) => {
   return (
     <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 text-white transform transition-transform duration-300 lg:translate-x-0 ${
       isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
@@ -60,7 +65,10 @@ const Sidebar = ({ activeTab, setActiveTab, isMobileMenuOpen, toggleMobileMenu }
             <SidebarButton 
               icon={<ShoppingBag size={20} />}
               label="Shop as Buyer"
-              onClick={() => {}}
+              onClick={() => {
+                onSwitchToBuyer();
+                toggleMobileMenu();
+              }}
             />
           </div>
         </div>

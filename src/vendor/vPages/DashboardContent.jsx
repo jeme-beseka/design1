@@ -1,24 +1,24 @@
 import React from 'react';
-import StatCard from './vComponents/StatCard';
-import RevenueChart from './vComponents/RevenueChart';
-import OrderStatusChart from './vComponents/OrderStatusChart';
-import RecentOrders from './vComponents/RecentOrders';
+import StatCard from '../vComponents/StatCard';
+import RevenueChart from '../vComponents/RevenueChart';
+import OrderStatusChart from '../vComponents/OrderStatusChart';
+import RecentOrders from '../vComponents/RecentOrders';
 import { DollarSign, ShoppingBag, Package, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { BarChart, Bar, LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
-import { ChevronRight } from 'lucide-react';
+// import { Link } from 'react-router-dom';
+// import { BarChart, Bar, LineChart, Line, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
+// import { ChevronRight } from 'lucide-react';
 
 
 const DashboardContent = () => {
   // Sample data for charts
-  const salesData = [
-    { name: 'Jan', sales: 4000 },
-    { name: 'Feb', sales: 3000 },
-    { name: 'Mar', sales: 5000 },
-    { name: 'Apr', sales: 2780 },
-    { name: 'May', sales: 1890 },
-    { name: 'Jun', sales: 2390 },
-  ];
+  // const salesData = [
+  //   { name: 'Jan', sales: 4000 },
+  //   { name: 'Feb', sales: 3000 },
+  //   { name: 'Mar', sales: 5000 },
+  //   { name: 'Apr', sales: 2780 },
+  //   { name: 'May', sales: 1890 },
+  //   { name: 'Jun', sales: 2390 },
+  // ];
 
   const recentOrdersData = [
     { id: '#ORD-1234', customer: 'John Doe', date: '2025-02-25', amount: 128.50, status: 'Delivered' },

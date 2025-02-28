@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import shoppingBagImage from './Shopping Bag.svg.png'
+import shoppingBagImage from './Shopping Bag.svg.png';
+import bikerImage from './delivery agent.svg.png';
 import './LaunchAnimation.css'; // Add your CSS for the animation
 
 const LaunchAnimation = ({ onAnimationComplete }) => {
@@ -18,6 +19,13 @@ const LaunchAnimation = ({ onAnimationComplete }) => {
 
   return (
     <div className="launch-container">
+      {/* Biker Animation */}
+      <div className="biker-animation">
+        <img src={bikerImage} alt="biker" className="biker-image" />
+      </div>
+
+
+
       {/* Shopping Bag with Animated Items */}
       <div className="shopping-bag-animation">
         <img src={shoppingBagImage} alt="shopping bag" className="bag-image" />

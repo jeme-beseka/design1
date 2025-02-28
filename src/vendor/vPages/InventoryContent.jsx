@@ -1,7 +1,7 @@
 // File: src/components/InventoryContent.js
 import React from 'react';
-import StatCard from './vComponents/StatCard';
-import ProductList from './vComponents/ProductList';
+import StatCard from '../vComponents/StatCard';
+import ProductList from '../vComponents/ProductList';
 import { Package, DollarSign } from 'lucide-react';
 
 const InventoryContent = () => {

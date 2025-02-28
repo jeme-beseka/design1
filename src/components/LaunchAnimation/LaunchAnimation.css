@@ -17,13 +17,40 @@
   overflow: hidden;
 }
 
+/* Biker Animation */
+.biker-animation {
+  position: absolute;
+  width: 200px;
+  bottom: 25%;
+  left: -20%; /* Start off-screen */
+  animation: bikerRide 4.5s var(--animation-timing) forwards,
+  bikeBounce 0.3s infinite;
+}
+
+.biker-image {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+@keyframes bikerRide {
+  0% { transform: translateX(-100px); }
+  40% { transform: translateX(50%); }
+  70% { transform: translateX(50%); }
+
+  100% { transform: translateX(150%); }
+}
+
 /* Shopping Bag Animation */
 .shopping-bag-animation {
   position: absolute;
-  width: 150px;
+  width: 140px;
+  bottom: 35%;
+  left: 50%;
+  transform: translate(-50%);
   animation: 
     bagCollect 4s var(--animation-timing) forwards,
-    bagShake 0.3s 0.5s 3;
+    bagShake 0.3s 3.4s 3;
 }
 
 .bag-image {
@@ -32,6 +59,7 @@
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
   transform-origin: bottom center;
 }
+
 
 .item {
   position: absolute;
@@ -48,19 +76,19 @@
 .item1 { 
   top: -20%;
   left: -20%;
-  animation-delay: 0.3s;
+  animation-delay: 0.8s;
 }
 
 .item2 { 
   top: -30%;
   left: 50%;
-  animation-delay: 0.6s;
+  animation-delay: 1.1s;
 }
 
 .item3 { 
   top: -20%;
   left: 80%;
-  animation-delay: 0.9s;
+  animation-delay: 1.4s;
 }
 
 /* App Name Animation */
@@ -91,10 +119,10 @@
 
 /* Keyframes */
 @keyframes bagCollect {
-  0% { transform: scale(0.8) translateY(0); opacity: 0; }
-  20% { transform: scale(1) translateY(0); opacity: 1; }
-  80% { transform: scale(1) translateY(0); opacity: 1; }
-  100% { transform: scale(0) translateY(-100px); opacity: 0; }
+  0% { transform: scale(0) translate(-50%, 100px); opacity: 0; }
+  20% { transform: scale(1) translate(-50%, 0); opacity: 1; }
+  70% { transform: scale(1) translate(-50%, 0); opacity: 1; }
+  100% { transform: scale(0.5) translate(100%, -80%); opacity: 0; }
 }
 
 @keyframes bagShake {
@@ -108,15 +136,15 @@
     transform: translate(-50%, -50%) scale(0.5);
   }
   30% {
-    opacity: 1;
-    transform: translate(0%, 100%) scale(1);
+    opacity: 0;
+    transform: translate(-10%, 80%) scale(1);
   }
   70% {
-    transform: translate(0%, 120%) scale(0.8);
+    transform: translate(10%, 100%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translate(0%, 150%) scale(0.3);
+    transform: translate(0%, 120%) scale(0.3);
   }
 }
 

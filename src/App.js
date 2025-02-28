@@ -1,8 +1,5 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import VendorDashboard from './pages/VendorDashboard'; // Import Vendor Dashboard
-import DashboardContent from './vendor/DashboardContent.jsx';
-import Dashboard from './vendor/Dashboard';
 import './App.css';
 
 
@@ -13,10 +10,12 @@ import  NavigationLoader from './components/Loader/NavigationLoader';
 
 
 // Lazy loading routes
-
+const VendorApp = lazy(() => import('./vendor/VendorApp')); 
 const LoginPage = lazy(() => import('./pages/Login.jsx'));
 const SignupPage = lazy(() => import('./pages/Signup.jsx'));
 const ForgotPasswordPage = lazy(() => import('./pages/ForgotPassword.jsx'));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPassword.jsx'));
+
 const Home = lazy(() => import('./pages/Home.jsx'));
 const Shops = lazy(() => import('./pages/Shops.jsx'));
 const ProductPage = lazy(() => import('./pages/ProductPage.jsx'));
@@ -45,9 +44,14 @@ const App = () => {
                 <ProductModalProvider>
                     <div className="app-container">
                         <Routes>
+
+
+
                             <Route path="/login" element={<LoginPage />} /> 
                             <Route path="/signup" element={<SignupPage />} />  
                             <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
+                            <Route path="/reset-password" element={<ResetPasswordPage />} />
+
                             <Route path="/home" element={<Home />} />
                             <Route path="/shops" element={<Shops />} />
                             <Route path="/product/:productId" element={<ProductPage />} />
@@ -55,8 +59,8 @@ const App = () => {
                             <Route path="/profile" element={<ProfilePage />} />
                             <Route path="/shop-view/:shopId" element={<ShopView />} />
                             <Route path="/shop-profile/:shopId" element={<ShopProfile />} />
-                            <Route path="/vendor" element={<VendorDashboard />} /> 
-                            <Route path="/vendor-dashboard" element={<DashboardContent />} /> 
+                            
+                            <Route path="/vendor" element={<VendorApp />} /> 
                         </Routes>
                         <ProductDetailModal />
                     </div>
