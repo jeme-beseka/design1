@@ -1,8 +1,9 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import VendorDashboard from './pages/VendorDashboard'; // Import Vendor Dashboard
-import DashboardContent from './vendor/DashboardContent.jsx';
-import Dashboard from './vendor/Dashboard';
+// import DashboardContent from './vendor/DashboardContent.jsx';
+// import Dashboard from './vendor/Dashboard';
+import NotificationsPage from './vendor/NotificationPage.jsx';
 import './App.css';
 
 
@@ -25,6 +26,8 @@ const ProfilePage = lazy(() => import('./pages/ProfilePage.jsx'));
 const ShopView = lazy(() => import('./components/shops/ShopView.jsx'));
 const ShopProfile = lazy(() => import('./components/shops/ShopProfile.jsx'));
 const ProductDetailModal = lazy(() => import('./components/products/ProductDetailModal.jsx'));
+const VendorChatListPage = lazy(() => import('./vendor/ChatList'));
+const VendorChatDetailPage = lazy(() => import('./vendor/ChatDetail'));
 
 
 const App = () => {
@@ -55,8 +58,11 @@ const App = () => {
                             <Route path="/profile" element={<ProfilePage />} />
                             <Route path="/shop-view/:shopId" element={<ShopView />} />
                             <Route path="/shop-profile/:shopId" element={<ShopProfile />} />
-                            <Route path="/vendor" element={<VendorDashboard />} /> 
-                            <Route path="/vendor-dashboard" element={<DashboardContent />} /> 
+                            {/* Vendor Routes */}
+                            <Route path="/vendor" element={<VendorDashboard />} />
+                            <Route path="/vendor/notifications" element={<NotificationsPage />} />
+                            <Route path="/vendor/chat" element={<VendorChatListPage />} />
+                            <Route path="/vendor/chat/:userId" element={<VendorChatDetailPage />} />
                         </Routes>
                         <ProductDetailModal />
                     </div>
