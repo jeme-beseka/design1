@@ -2,19 +2,23 @@ import React from 'react';
 import { 
   Home, Package, ShoppingBag, TrendingUp, Users, Truck, Settings, X 
 } from 'lucide-react';
-
+import { allShops } from '../../data/shopData';
+  
 const Sidebar = ({ 
   onSwitchToBuyer, 
   activeTab, 
   setActiveTab, 
   isMobileMenuOpen, 
   toggleMobileMenu }) => {
+
+  const shopData = allShops[0];
+
   return (
     <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 text-white transform transition-transform duration-300 lg:translate-x-0 ${
       isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
     }`}>
       <div className="flex items-center justify-between p-4 border-b border-gray-800">
-        <h1 className="text-xl font-bold">VendorHub</h1>
+        <h1 className="text-xl font-bold">{shopData.name}</h1>
         <button onClick={toggleMobileMenu} className="lg:hidden text-white">
           <X size={24} />
         </button>
@@ -47,7 +51,8 @@ const Sidebar = ({
             <SidebarButton 
               icon={<TrendingUp size={20} />}
               label="Analytics"
-              onClick={() => {}}
+              isActive={activeTab === 'analytics'}
+              onClick={() => setActiveTab('analytics')}
             />
             
             <SidebarButton 

@@ -24,7 +24,7 @@ const Header = () => {
 
         {/* Logo with Link */}
         <div className="flex items-center">
-          <Link to="/" aria-label="Go to homepage">
+          <Link to="/home" aria-label="Go to homepage">
             <img src="/api/placeholder/40/40" alt="Logo" className="h-8 sm:h-10" />
           </Link>
         </div>
