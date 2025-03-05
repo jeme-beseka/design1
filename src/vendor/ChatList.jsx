@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mail, ChevronRight } from 'lucide-react';
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from './vCommon/Sidebar';
+import Header from './vCommon/Header';
 
 const mockChatUsers = [
   { 

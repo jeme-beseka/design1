@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Bell, Menu, Search, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { allShops } from '../data/shopData';
-import NotificationPanel from './vComponents/NotificationPanel';
+import { allShops } from '../../data/shopData';
+import NotificationPanel from '../vComponents/NotificationPanel';
 
 //Custom hook for handling notification panel
 function useClickOutside(ref, callback) {

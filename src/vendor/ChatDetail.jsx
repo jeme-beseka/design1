@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Paperclip, Mic, Send, Image, Smile 
 } from 'lucide-react';
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from './vCommon/Sidebar';
+import Header from './vCommon/Header';
 
 const mockChatUsers = [
   { 

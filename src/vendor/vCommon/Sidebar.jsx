@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Home, Package, ShoppingBag, TrendingUp, Users, Truck, Settings, X 
 } from 'lucide-react';
-import { allShops } from '../data/shopData';
+import { allShops } from '../../data/shopData';
   
 const Sidebar = ({ 
   onSwitchToBuyer, 

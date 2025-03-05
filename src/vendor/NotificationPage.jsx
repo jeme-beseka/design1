@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Bell } from 'lucide-react';
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from './vCommon/Sidebar';
+import Header from './vCommon/Header';
 
 function NotificationPage() {
   const [activeTab, setActiveTab] = useState('');
