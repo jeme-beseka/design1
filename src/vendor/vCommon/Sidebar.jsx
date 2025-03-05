@@ -3,9 +3,15 @@ import {
   Home, Package, ShoppingBag, TrendingUp, Users, Truck, Settings, X 
 } from 'lucide-react';
 import { allShops } from '../data/shopData';
+  
+const Sidebar = ({ 
+  onSwitchToBuyer, 
+  activeTab, 
+  setActiveTab, 
+  isMobileMenuOpen, 
+  toggleMobileMenu }) => {
 
-const Sidebar = ({ activeTab, setActiveTab, isMobileMenuOpen, toggleMobileMenu }) => {
-  const shopData = allShops;
+  const shopData = allShops[0];
 
   return (
     <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 text-white transform transition-transform duration-300 lg:translate-x-0 ${
@@ -64,7 +70,10 @@ const Sidebar = ({ activeTab, setActiveTab, isMobileMenuOpen, toggleMobileMenu }
             <SidebarButton 
               icon={<ShoppingBag size={20} />}
               label="Shop as Buyer"
-              onClick={() => {}}
+              onClick={() => {
+                onSwitchToBuyer();
+                toggleMobileMenu();
+              }}
             />
           </div>
         </div>
